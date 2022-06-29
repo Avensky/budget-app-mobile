@@ -12,7 +12,7 @@ export async function fetchExpenses() {
     const response = await axios.get(BASE_URL+'/api/getExpenses')
 
     const expenses = [];
-    //console.log('fetchedExpenses: ', response.data)
+    console.log('fetchedExpenses: ', response.data)
     for (const key in response.data) {
         //console.log('key: ', key)
         const expenseObj = {
@@ -34,6 +34,6 @@ export function updateExpense(id, expenseData) {
 }
 
 export function deleteExpense(id) {
-    const deleteExpense = axios.delete(BASE_URL + `/api/deleteExpense/${id}`);
+    const deleteExpense = axios.post(BASE_URL + `/api/deleteExpense/${id}`);
     return deleteExpense
 }
